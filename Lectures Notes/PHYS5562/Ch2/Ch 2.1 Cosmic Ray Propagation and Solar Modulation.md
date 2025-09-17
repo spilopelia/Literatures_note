@@ -22,7 +22,39 @@ $$
 
 This radius defines the scale of the particle's interaction with the magnetic field.
 
-We thus define rigidity as $$R=\frac{p}{q}$$
+---
+
+### 1.1 Definition of Rigidity
+
+In cosmic ray physics, it is often more useful to describe particles by their **rigidity** rather than momentum or energy alone.
+
+**Rigidity ($R$):**
+
+$$
+R = \frac{pc}{|Z|e} = \frac{E}{q}
+$$
+
+- $p$: particle momentum  
+- $c$: speed of light  
+- $Z$: charge number of the particle  
+- $e$: elementary charge  
+- E: energy of the particle
+
+**Why Rigidity Matters:**
+
+- The motion of a charged particle in a magnetic field depends only on its rigidity, not separately on charge or momentum.  
+- Particles with the same rigidity follow the same trajectory in a given magnetic field, regardless of mass or energy.  
+- In terms of the Larmor radius:
+
+  $$
+  r_g = \frac{R}{B}
+  $$
+
+  showing that rigidity directly determines the scale of magnetic deflection.  
+
+Thus, rigidity provides a universal way to compare how different particles propagate through galactic and interplanetary magnetic fields.
+
+---
 
 ---
 
