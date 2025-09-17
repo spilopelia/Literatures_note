@@ -40,7 +40,9 @@ $$
 - $e$: elementary charge  
 - E: energy of the particle
 
-**Why Rigidity Matters:**
+---
+
+#### Why Rigidity Matters
 
 - The motion of a charged particle in a magnetic field depends only on its rigidity, not separately on charge or momentum.  
 - Particles with the same rigidity follow the same trajectory in a given magnetic field, regardless of mass or energy.  
@@ -52,9 +54,32 @@ $$
 
   showing that rigidity directly determines the scale of magnetic deflection.  
 
-Thus, rigidity provides a universal way to compare how different particles propagate through galactic and interplanetary magnetic fields.
-
 ---
+
+#### Units of Rigidity
+
+From the definition:
+
+$$
+R = \frac{pc}{Ze}
+$$
+
+- Momentum $p$ has units of $\text{eV}/c$.  
+- Multiplying by $c$ gives energy ($\text{eV}$).  
+- Dividing by charge ($Ze$) gives **energy per unit charge**.  
+
+**Therefore, the unit of rigidity is:**
+
+$$
+[\text{Rigidity}] = \frac{\text{energy}}{\text{charge}} = \text{volt (V)}
+$$
+
+- In practice, rigidity is often expressed in **GV (gigavolts)**.  
+- For example:  
+  - A proton with 1 GeV of momentum has $R \approx 1$ GV.  
+  - An alpha particle ($Z=2$) with the same momentum has $R \approx 0.5$ GV.  
+
+This unit reflects the fact that rigidity determines how a particle responds to electromagnetic fields — it tells you the **equivalent potential difference** required to bend the particle’s trajectory.
 
 ---
 
