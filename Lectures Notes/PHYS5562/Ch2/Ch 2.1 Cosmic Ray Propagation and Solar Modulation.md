@@ -22,6 +22,8 @@ $$
 
 This radius defines the scale of the particle's interaction with the magnetic field.
 
+We thus define rigidity as $$R=\frac{p}{q}$$
+
 ---
 
 ## 2. The Physics of Propagation: From Random Walks to Diffusion
