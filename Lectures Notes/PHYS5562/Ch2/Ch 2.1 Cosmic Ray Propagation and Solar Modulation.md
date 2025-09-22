@@ -245,4 +245,3 @@ This shows that the observed number of cosmic rays is a direct balance between *
 ---
 
 
----
