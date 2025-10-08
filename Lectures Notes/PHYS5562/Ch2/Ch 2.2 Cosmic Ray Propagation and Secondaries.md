@@ -1,4 +1,3 @@
-
 ## 1. The Cosmic Ray Transport Equation
 
 Cosmic rays are not static; they propagate through the galaxy, interact, and decay. Their evolution is described by a transport equation.
