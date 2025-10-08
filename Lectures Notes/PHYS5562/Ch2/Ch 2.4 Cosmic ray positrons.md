@@ -127,7 +127,6 @@ This groundbreaking result was later confirmed with much higher precision by the
 ### Fermi's Detection Method
 Unlike PAMELA and AMS, the Fermi-LAT detector does not have its own magnet. It cleverly uses the Earth's magnetic field as a mass spectrometer. Positively charged positrons and negatively charged electrons are bent in opposite directions by the Earth's field. By analyzing the trajectories of particles arriving from the east versus the west, Fermi can distinguish between them.
 
-![Slide 15](https://i.imgur.com/H1G33Uj.png)
 
 ---
 
