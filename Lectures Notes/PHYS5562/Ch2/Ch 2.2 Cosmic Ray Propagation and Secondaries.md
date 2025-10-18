@@ -116,7 +116,7 @@ Grammage `X(E)` simplifies propagation by combining density and time into a sing
 
 **Derivation:**
 
-1.  **Definition of Grammage**: The total matter traversed is `X(E) = ρ_ISM \cdot c \cdot T_e(E)`. Note that `ρ_ISM = m \cdot n_ISM`, where `m` is the average mass of an ISM particle.
+1.  **Definition of Grammage**: The total matter traversed is $$X(E) = ρ_ISM \cdot c \cdot T_e(E)$$`. Note that `$$ρ_{ISM} = m \cdot n_{ISM}$$`, where `m` is the average mass of an ISM particle.
 2.  **Connecting to B/C Ratio**: We take the high-energy (escape-dominated) B/C ratio:
     $$
     \frac{n_B}{n_C} \approx (n_{ISM} \cdot \sigma_{C \to B} \cdot c) \cdot T_e(E)
