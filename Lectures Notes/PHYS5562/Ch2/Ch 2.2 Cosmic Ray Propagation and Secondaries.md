@@ -157,6 +157,98 @@ We analyze the reaction `p + p → p + p + p + p̄` in a relativistically invari
     T_{thr} = E_{lab} - m_p = 7m_p - m_p = \mathbf{6m_p} \approx 5.6 \, \text{GeV}
     $$
 
+## Problem 2 — Threshold Energy for \( \bar{p} \) Production
+
+Consider the reaction:
+
+$$
+p + p \rightarrow p + p + p + \bar{p}.
+$$
+
+Baryon number conservation requires producing a \( p\bar{p} \) pair in addition to the two initial protons, so the **lightest final state** has four nucleons.
+
+We work in the **lab frame**, where one proton (mass \( m_p \)) is at rest and the other is the beam proton.
+
+The Mandelstam variable \( s \) is:
+
+$$
+s = (p_1 + p_2)^2 = m_p^2 + m_p^2 + 2 m_p E_{\text{lab}}
+= 2m_p^2 + 2m_pE_{\text{lab}}.
+$$
+
+At **threshold**, all final particles are produced at rest in the center-of-mass frame, so:
+
+$$
+\sqrt{s_{\text{thr}}} = 4 m_p
+\quad \Rightarrow \quad
+s_{\text{thr}} = 16 m_p^2.
+$$
+
+Equating the two gives:
+
+$$
+16m_p^2 = 2m_p^2 + 2m_p E_{\text{lab}}
+\quad \Rightarrow \quad
+E_{\text{lab}} = 7 m_p.
+$$
+
+Hence, the **threshold kinetic energy** of the beam proton is:
+
+$$
+T_{\text{thr}} = E_{\text{lab}} - m_p = 6 m_p
+\approx 6 \times 938~\text{MeV} \approx 5.6~\text{GeV}.
+$$
+
+✅ **Result:**
+
+$$
+\boxed{T_{\text{thr}} = 5.6~\text{GeV}}
+$$
+
+---
+
+## Problem 3 — Maximum Energy of the Antiproton at Fixed \( \sqrt{s} \)
+
+At a given center-of-mass energy \( \sqrt{s} \), the **maximum energy of the antiproton** occurs when the other three protons move together with minimal internal excitation.  
+Their total invariant mass is then:
+
+$$
+M_{\text{cl}} = 3 m_p.
+$$
+
+We can treat the final state effectively as a **two-body system**:
+
+$$
+\sqrt{s} \to \bar{p} \ (m_1 = m_p) + \text{cluster} \ (m_2 = 3m_p).
+$$
+
+For a general two-body final state in the CM frame:
+
+$$
+E_1 = \frac{s + m_1^2 - m_2^2}{2\sqrt{s}}.
+$$
+
+Substituting \( m_1 = m_p \) and \( m_2 = 3m_p \):
+
+$$
+E_{\bar{p}}^{\max} = \frac{s + m_p^2 - (3m_p)^2}{2\sqrt{s}}
+= \frac{s - 8m_p^2}{2\sqrt{s}}.
+$$
+
+The corresponding momentum is:
+
+$$
+p_{\bar{p}}^{\max} = \sqrt{(E_{\bar{p}}^{\max})^2 - m_p^2}.
+$$
+
+✅ **Result:**
+
+$$
+\boxed{
+E_{\bar{p}}^{\max} = \frac{s - 8m_p^2}{2\sqrt{s}}
+}
+$$
+
 ### b) The Role of the Differential Cross Section
 
 The simple leaky-box model tells us the *total* number of antiprotons produced, but not their energies. To predict the antiproton *spectrum*, we need the **differential cross section**.
