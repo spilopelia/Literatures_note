@@ -89,11 +89,11 @@ This is the second major radiative loss mechanism, occurring when electrons are 
 ### 4.1 The Synchrotron-IC Analogy
 A profound physical insight is that **Synchrotron radiation is Inverse Compton scattering off the *virtual photons* of a magnetic field.** This means the underlying physics and mathematical structure are identical.
 
-| Concept | Inverse Compton (IC) | Synchrotron |
-| :--- | :--- | :--- |
-| **Target Energy Density** | Photon Density `U_ph` | Magnetic Density **`U_B = B² / 2μ₀`** |
-| **Base "Photon" Energy** | Real Photon Energy `E_ph` | Effective energy related to the **Cyclotron Frequency** `ν_c = eB/2πm_e` |
-| **Emitted Frequency** | `ν_IC ≈ γ² ν_ph` | `ν_sync ≈ γ² ν_c` |
+| Concept                   | Inverse Compton (IC)      | Synchrotron                                                              |
+| :------------------------ | :------------------------ | :----------------------------------------------------------------------- |
+| **Target Energy Density** | Photon Density `U_ph`     | Magnetic Density **`U_B = B² / 2μ₀`**                                    |
+| **Base "Photon" Energy**  | Real Photon Energy `E_ph` | Effective energy related to the **Cyclotron Frequency** `ν_c = eB/2πm_e` |
+| **Emitted Frequency**     | `ν_IC ≈ γ² ν_ph`          | `ν_sync ≈ γ² ν_c`                                                        |
 
 ### 4.2 Synchrotron Energy Loss Formula
 Using this analogy, we can instantly write the energy loss formula by swapping `U_ph` with `U_B`:
