@@ -1,4 +1,4 @@
-## 1. The Origin of Cosmic Rays
+	## 1. The Origin of Cosmic Rays
 
 Cosmic rays are high-energy particles (mostly protons and atomic nuclei) that travel through space at nearly the speed of light. Their energy spectrum, as observed at Earth, follows a distinct broken power-law.
 
