@@ -1,3 +1,4 @@
+# Notes: Mass-Sheet Degeneracy (MST), Source-Position Transformation (SPT), and Schneider & Sluse (2013)
 
 ---
 
@@ -551,3 +552,349 @@ so $f$ becomes a function of $\beta^2$ (even in $\beta$).
 $$
 \nu=\frac{1+f(0)}{1-f(0)}.
 $$
+
+---
+
+# Appendix: Non-axisymmetric (general) SPT material from the paper
+
+## 17. Why the Jacobian of a *physical* lens is “identity minus a Hessian” (and symmetric)
+
+Start from:
+$$
+\boldsymbol\beta(\boldsymbol\theta)=\boldsymbol\theta-\boldsymbol\alpha(\boldsymbol\theta),
+\qquad
+\boldsymbol\alpha(\boldsymbol\theta)=\nabla\psi(\boldsymbol\theta).
+$$
+
+Differentiate component-wise:
+$$
+A_{ij}(\boldsymbol\theta)
+\equiv \frac{\partial \beta_i}{\partial \theta_j}
+= \frac{\partial \theta_i}{\partial \theta_j}-\frac{\partial \alpha_i}{\partial \theta_j}
+= \delta_{ij}-\frac{\partial}{\partial\theta_j}\left(\frac{\partial\psi}{\partial\theta_i}\right)
+= \delta_{ij}-\frac{\partial^2\psi}{\partial\theta_i\partial\theta_j}.
+$$
+
+So:
+$$
+A(\boldsymbol\theta)=I-\nabla\nabla\psi(\boldsymbol\theta).
+$$
+
+If $\psi$ is smooth, mixed partials commute, so the Hessian is symmetric:
+$$
+\psi_{,ij}=\psi_{,ji}\quad\Rightarrow\quad A_{ij}=A_{ji}.
+$$
+
+This symmetry is the key obstruction in the general SPT: in general,
+$$
+\hat A(\theta)=B(\beta(\theta))\,A(\theta)
+$$
+need not be symmetric, so it may not correspond exactly to any potential $\hat\psi$ (equivalently, $\hat\alpha$ may have curl).
+
+---
+
+## 18. Convergence + shear form of $A$ (Eq. 27)
+
+Define the usual second-derivative combinations:
+$$
+\kappa=\frac12(\psi_{,11}+\psi_{,22}),
+\qquad
+\gamma_1=\frac12(\psi_{,11}-\psi_{,22}),
+\qquad
+\gamma_2=\psi_{,12}.
+$$
+
+Then:
+$$
+A=
+\begin{pmatrix}
+1-\kappa-\gamma_1 & -\gamma_2\\
+-\gamma_2 & 1-\kappa+\gamma_1
+\end{pmatrix}.
+$$
+
+Write shear in amplitude–angle form:
+$$
+\gamma=\sqrt{\gamma_1^2+\gamma_2^2},
+\qquad
+\gamma_1=\gamma\cos2\vartheta,
+\qquad
+\gamma_2=\gamma\sin2\vartheta.
+$$
+
+Define the symmetric traceless “shear-direction” matrix:
+$$
+P(\vartheta)\equiv
+\begin{pmatrix}
+\cos2\vartheta & \sin2\vartheta\\
+\sin2\vartheta & -\cos2\vartheta
+\end{pmatrix}.
+$$
+
+Then (paper Eq. 27):
+$$
+A=(1-\kappa)\,I-\gamma\,P(\vartheta).
+$$
+
+---
+
+## 19. Decomposition of $B$ and derivation of Eqs. (29)–(31)
+
+They write $B$ analogously (paper Eq. 28):
+$$
+B = B_1 I + B_2 P(\eta),
+\qquad
+P(\eta)=
+\begin{pmatrix}
+\cos2\eta & \sin2\eta\\
+\sin2\eta & -\cos2\eta
+\end{pmatrix}.
+$$
+
+Using the chain rule:
+$$
+\hat A(\theta)=\frac{\partial\hat\beta}{\partial\theta}
+=\frac{\partial\hat\beta}{\partial\beta}\frac{\partial\beta}{\partial\theta}
+=B(\beta(\theta))\,A(\theta).
+$$
+
+Insert $A=(1-\kappa)I-\gamma P(\vartheta)$ and expand:
+$$
+\hat A
+=(B_1 I + B_2 P(\eta))\Big((1-\kappa)I-\gamma P(\vartheta)\Big)
+= B_1(1-\kappa)I + B_2(1-\kappa)P(\eta) -\gamma B_1 P(\vartheta) - \gamma B_2 P(\eta)P(\vartheta).
+$$
+
+Now compute $P(\eta)P(\vartheta)$. With $c_x=\cos2x$, $s_x=\sin2x$:
+$$
+P(\eta)=\begin{pmatrix}c_\eta&s_\eta\\ s_\eta&-c_\eta\end{pmatrix},
+\qquad
+P(\vartheta)=\begin{pmatrix}c_\vartheta&s_\vartheta\\ s_\vartheta&-c_\vartheta\end{pmatrix}.
+$$
+
+Multiply:
+$$
+P(\eta)P(\vartheta)=
+\begin{pmatrix}
+c_\eta c_\vartheta+s_\eta s_\vartheta & c_\eta s_\vartheta-s_\eta c_\vartheta\\
+s_\eta c_\vartheta-c_\eta s_\vartheta & s_\eta s_\vartheta+c_\eta c_\vartheta
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos2(\eta-\vartheta) & -\sin2(\eta-\vartheta)\\
+\sin2(\eta-\vartheta) & \cos2(\eta-\vartheta)
+\end{pmatrix}.
+$$
+
+Therefore (paper Eq. 29):
+$$
+\hat A = B_1 (1-\kappa)I + B_2(1-\kappa)P(\eta) - \gamma B_1 P(\vartheta)
+-\gamma B_2
+\begin{pmatrix}
+\cos2(\eta-\vartheta) & -\sin2(\eta-\vartheta)\\
+\sin2(\eta-\vartheta) & \cos2(\eta-\vartheta)
+\end{pmatrix}.
+$$
+
+### Trace definition of an “effective” $\hat\kappa$ (paper Eq. 30)
+
+For any physical lens Jacobian, $\mathrm{tr}\,A=2(1-\kappa)$. They define $\hat\kappa$ from the trace as if $\hat A$ came from a potential:
+$$
+\mathrm{tr}\,\hat A \equiv 2(1-\hat\kappa).
+$$
+
+Take the trace of the expression above:
+- $\mathrm{tr}(I)=2$
+- $\mathrm{tr}(P(\eta))=\mathrm{tr}(P(\vartheta))=0$
+- the last matrix has trace $2\cos2(\eta-\vartheta)$
+
+So:
+$$
+\mathrm{tr}\,\hat A = 2B_1(1-\kappa) - 2\gamma B_2 \cos2(\eta-\vartheta),
+$$
+hence:
+$$
+\hat\kappa = 1 + B_1(\kappa-1) + B_2\gamma\cos2(\eta-\vartheta).
+$$
+
+### Asymmetry measure (paper Eq. 31)
+
+The antisymmetric part is controlled by the off-diagonal difference:
+$$
+\frac{\hat A_{12}-\hat A_{21}}{2} = \gamma B_2 \sin2(\eta-\vartheta).
+$$
+
+They define:
+$$
+\hat\kappa_I \equiv B_2\gamma\sin2(\eta-\vartheta).
+$$
+
+Interpretation:
+- $\hat\kappa$ is the “best” isotropic focusing part of $\hat A$
+- $\hat\kappa_I$ measures how non-Hessian / non-physical the mapping is (a rotation/curl artifact)
+- $\hat A$ is symmetric (physically realizable) if $\hat\kappa_I=0$, e.g. if $B_2=0$ (MST-like) or $\eta=\vartheta$ (aligned shear directions).
+
+---
+
+## 20. Radial “stretching” SPT in 2D and reduction to the axisymmetric formula (Eqs. 32–33)
+
+Consider the commonly used “radial” SPT in the source plane:
+$$
+\hat{\boldsymbol\beta} = \bigl[1+f(\beta)\bigr]\boldsymbol\beta,
+\qquad
+\beta\equiv|\boldsymbol\beta|.
+$$
+
+Compute $B_{ij}=\partial\hat\beta_i/\partial\beta_j$. Since $\hat\beta_i=(1+f)\beta_i$:
+$$
+B_{ij}=\frac{\partial}{\partial\beta_j}\Big((1+f)\beta_i\Big)
+=(1+f)\delta_{ij} + \beta_i\frac{\partial f}{\partial\beta_j}.
+$$
+
+Because $f=f(\beta)$ and $\partial\beta/\partial\beta_j=\beta_j/\beta$:
+$$
+\frac{\partial f}{\partial\beta_j}=f'(\beta)\frac{\beta_j}{\beta}.
+$$
+
+Therefore:
+$$
+B_{ij}=(1+f)\delta_{ij}+\frac{f'(\beta)}{\beta}\beta_i\beta_j.
+$$
+
+This matrix has eigenvalues:
+- tangential direction: $1+f$
+- radial direction: $1+f+\beta f'$
+
+Writing this in the $(B_1,B_2,\eta)$ form yields (paper Eq. 32):
+$$
+B_1 = 1+f+\frac{\beta f'}{2},
+\qquad
+B_2 = \frac{\beta f'}{2},
+\qquad
+\eta=\phi,
+$$
+where $\phi$ is the polar angle of $\boldsymbol\beta$.
+
+For an axisymmetric lens, the shear phase is the polar angle of $\boldsymbol\theta$:
+$$
+\vartheta=\varphi,
+\qquad
+\gamma=\kappa-\bar\kappa,
+\qquad
+\bar\kappa(\theta)=\frac{m(\theta)}{\theta^2}.
+$$
+
+Because $\boldsymbol\beta$ and $\boldsymbol\theta$ are collinear in axisymmetry, $\phi=\varphi$ (or $\varphi+\pi$), so:
+$$
+\sin2(\eta-\vartheta)=0 \quad\Rightarrow\quad \hat\kappa_I=0,
+$$
+and the mapping is physically realizable.
+
+Plugging these into Eq. (30) gives (paper Eq. 33):
+$$
+\hat\kappa
+= \kappa + (\kappa-1)f + \frac{\beta f'}{2}\,(2\kappa-1-\bar\kappa).
+$$
+
+Connection to Eq. (16): use $\beta=\theta-\alpha=\theta(1-\bar\kappa)$ and
+$$
+\alpha' = 2\kappa-\bar\kappa
+\quad\Rightarrow\quad
+\det A=(1-\bar\kappa)(1-2\kappa+\bar\kappa)
+\quad\Rightarrow\quad
+\theta\det A = (\theta-\alpha)(1+\bar\kappa-2\kappa).
+$$
+Then Eq. (33) matches Eq. (16).
+
+---
+
+## 21. Quadrupole lens estimate (Sect. 4.2): what controls the “non-physical” part
+
+For a quadrupole lens (axisymmetric mass + external shear), the angle misalignment $\eta-\vartheta$ is generally nonzero, so $\hat\kappa_I$ can be nonzero.
+
+For the radial SPT above, they obtain (paper Eq. 40):
+$$
+\hat\kappa
+=
+(1+f)\kappa - f
++\frac{\beta f'}{2}\Big(\kappa-1+\gamma\cos2(\phi-\vartheta)\Big).
+$$
+
+If $f$ is approximated near the origin by an even expansion:
+$$
+f(\beta)=f_0+\frac{f_2}{2}\beta^2,
+$$
+then $\beta f'/2=f_2\beta^2/2$, and the “nonlinear” (beyond-MST) part is controlled by $f_2$.
+
+Their key qualitative result for asymmetry (paper Eq. 42) is that
+$$
+\hat\kappa_I \propto \gamma_p\,(\theta^2 f_2)\times(\text{angular terms}),
+$$
+so the non-physical part is suppressed if:
+- the external shear $\gamma_p$ is small (typical $\lesssim 0.1$)
+- the curvature $f_2$ is not too large (otherwise $\hat\kappa$ becomes unphysical even in axisymmetry).
+
+This is the main reason they expect the “best physical approximation” from $\hat\kappa$ (trace) to be very close to the formal $\hat\alpha$ in realistic strong lenses.
+
+---
+
+## 22. Non-axisymmetric illustrative example (Sect. 4.3): how they *actually* construct the transform
+
+They compare two *different* (non-axisymmetric) lens models, both with external shear:
+- fiducial composite model (Hernquist + generalized NFW) + shear
+- target cored power-law model + shear
+
+### Step A: generate image configurations in the fiducial model
+Pick a grid of sources $\{\beta\}$ in the source plane.
+For each source $\beta$, solve the fiducial lens equation to get the image positions $\{\theta_i\}$.
+
+### Step B: for each fiducial source, find the corresponding $\hat\beta$ in the target model
+For the target model, adjust the source position $\hat\beta$ so that the target-predicted image positions $\{\hat\theta_i(\hat\beta)\}$ match the fiducial images $\{\theta_i\}$ as closely as possible.
+
+Operationally this is an astrometric fit, e.g.
+$$
+\chi^2(\hat\beta)=\sum_i \frac{|\hat\theta_i(\hat\beta)-\theta_i|^2}{\sigma_\theta^2},
+\qquad
+\hat\beta = \arg\min_{\hat\beta}\chi^2(\hat\beta).
+$$
+
+This produces an *empirical* mapping:
+$$
+\beta \mapsto \hat\beta(\beta).
+$$
+
+### Step C: interpret the mapping as an approximate SPT and check if it is MST-like
+For an MST you would have:
+$$
+\hat\beta=\lambda\beta \quad (\lambda=\text{constant}).
+$$
+
+They instead plot:
+$$
+\frac{|\hat\beta|}{|\beta|}
+$$
+as a function of $|\beta|$ and polar angle $\phi$ and find:
+- it varies with $|\beta|$ (so **not MST**),
+- it has only weak dependence on $\phi$ (so **almost isotropic**).
+
+This motivates an approximate radial SPT interpretation:
+$$
+\hat\beta \approx [1+f(\beta)]\,\beta,
+\qquad
+1+f(\beta)\approx \frac{|\hat\beta|}{|\beta|}.
+$$
+
+### Step D: what they find for magnification and time delays (diagnostics)
+Empirically, they find the magnification scaling behaves like:
+$$
+\hat\mu \approx [1+f(\beta)]^2\,\mu,
+$$
+i.e. “MST-like” but with a $\beta$-dependent scaling.
+
+For time delays, MST would imply (up to conventions) a constant scaling with $\lambda$, but they find:
+$$
+\frac{\tau/\hat\tau}{|\beta|/|\hat\beta|}\neq 1,
+$$
+and, for quads, the ratio $\tau/\hat\tau$ can vary between different images of the same source (time-delay ratios not preserved), with spreads that can reach $\sim 10\%$ for some source positions.
+
+**Interpretation:** in realistic non-axisymmetric lenses, two different mass models can be nearly indistinguishable in image positions/shapes over the strong-lensing region (an approximate SPT), but time delays provide a sensitive way to break the degeneracy.
