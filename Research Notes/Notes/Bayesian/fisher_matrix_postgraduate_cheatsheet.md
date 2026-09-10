@@ -1,4 +1,4 @@
-**Fisher Matrix — Postgraduate Cheat Sheet**
+	**Fisher Matrix — Postgraduate Cheat Sheet**
 
 > [!summary]
 > The Fisher matrix is a local map of how strongly the data respond to changes in model parameters.
