@@ -801,9 +801,9 @@ $$
 then
 
 # $$  
-\hat\beta(-\beta)
+\hat\beta(-\beta)=
 
-# -[1+f(\beta)]\beta
+-[1+f(\beta)]\beta=
 
 -\hat\beta(\beta).  
 $$
@@ -832,7 +832,7 @@ Product rule:
 
 # $$  
 \boxed{  
-\frac{d\hat\beta}{d\beta}
+\frac{d\hat\beta}{d\beta}=
 
 1+f+\beta f'.  
 }  
@@ -942,7 +942,7 @@ Remember:
 
 # $$  
 \boxed{  
-\hat\kappa
+\hat\kappa=
 
 \frac12  
 \left(  
@@ -962,17 +962,17 @@ $$
 Differentiate:
 
 # $$  
-\hat\alpha'
+\hat\alpha'=
 
-## \alpha'
-
+ \alpha'
+=
 \frac{d}{d\theta}[f(\beta)\beta].  
 $$
 
 Chain rule:
 
 # $$  
-\frac{d}{d\theta}[f(\beta)\beta]
+\frac{d}{d\theta}[f(\beta)\beta]=
 
 \frac{d[f\beta]}{d\beta}  
 \frac{d\beta}{d\theta}.  
@@ -981,7 +981,7 @@ $$
 First factor:
 
 # $$  
-\frac{d[f\beta]}{d\beta}
+\frac{d[f\beta]}{d\beta}=
 
 f+\beta f'.  
 $$
@@ -989,7 +989,7 @@ $$
 Second factor:
 
 # $$  
-\frac{d\beta}{d\theta}
+\frac{d\beta}{d\theta}=
 
 1-\alpha'.  
 $$
@@ -1007,9 +1007,9 @@ $$
 Also,
 
 # $$  
-\frac{\hat\alpha}{\theta}
+\frac{\hat\alpha}{\theta}=
 
-## \frac{\alpha}{\theta}
+\frac{\alpha}{\theta}=
 
 \frac{f\beta}{\theta}.  
 $$
@@ -1017,15 +1017,15 @@ $$
 Put both into $\hat\kappa$:
 
 # $$  
-\hat\kappa
+\hat\kappa=
 
-## \frac12  
+ \frac12  
 \left[  
 \alpha'  
 +  
 \frac{\alpha}{\theta}
 
-## (f+\beta f')(1-\alpha')
+ (f+\beta f')(1-\alpha')
 
 \frac{f\beta}{\theta}  
 \right].  
