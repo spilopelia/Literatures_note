@@ -27,17 +27,17 @@ tags:
 
 ## Long-question starting-point index
 
-| If the question says… | Begin with… |
-|---|---|
-| Determine eigenvalues/eigenvectors | $\det(A-\lambda I)=0$, then $(A-\lambda I)|v\rangle=0$ and normalize |
-| Compute outcome and probability | Spectral projector $P_\lambda$, then $p_\lambda=\langle\psi|P_\lambda|\psi\rangle$ |
-| Subsequent measurement | Replace the initial state by $P_\lambda|\psi\rangle/\sqrt{p_\lambda}$ |
-| Act on one subsystem | Insert $A\otimes I$ or $I\otimes B$ before applying the operator |
-| Compute reduced state | Expand $\rho$ and use $\operatorname{Tr}_2(|i\alpha\rangle\langle j\beta|)=\delta_{\alpha\beta}|i\rangle\langle j|$ |
-| Prove a commutator identity | Expand $[A,B]=AB-BA$ and use associativity |
-| Prove uncertainty inequality | Set $|u\rangle=\delta A|\psi\rangle$, $|v\rangle=\delta B|\psi\rangle$ and use Cauchy–Schwarz |
-| Fourier / momentum | Insert $I=\int dp\,|p\rangle\langle p|$ and differentiate $e^{ipx/\hbar}$ |
-| No cloning | Apply inner-product preservation to two states before and after copying |
+| If the question says…              | Begin with…                                                             |                               |                                     |                   |                                     |
+| ---------------------------------- | ----------------------------------------------------------------------- | ----------------------------- | ----------------------------------- | ----------------- | ----------------------------------- |
+| Determine eigenvalues/eigenvectors | $\det(A-\lambda I)=0$, then $(A-\lambda I)                              | v\rangle=0$ and normalize     |                                     |                   |                                     |
+| Compute outcome and probability    | Spectral projector $P_\lambda$, then $p_\lambda=\langle\psi             | P_\lambda                     | \psi\rangle$                        |                   |                                     |
+| Subsequent measurement             | Replace the initial state by $P_\lambda                                 | \psi\rangle/\sqrt{p_\lambda}$ |                                     |                   |                                     |
+| Act on one subsystem               | Insert $A\otimes I$ or $I\otimes B$ before applying the operator        |                               |                                     |                   |                                     |
+| Compute reduced state              | Expand $\rho$ and use $\operatorname{Tr}_2(                             | i\alpha\rangle\langle j\beta  | )=\delta_{\alpha\beta}              | i\rangle\langle j | $                                   |
+| Prove a commutator identity        | Expand $[A,B]=AB-BA$ and use associativity                              |                               |                                     |                   |                                     |
+| Prove uncertainty inequality       | Set $                                                                   | u\rangle=\delta A             | \psi\rangle$, $                     | v\rangle=\delta B | \psi\rangle$ and use Cauchy–Schwarz |
+| Fourier / momentum                 | Insert $I=\int dp\,                                                     | p\rangle\langle p             | $ and differentiate $e^{ipx/\hbar}$ |                   |                                     |
+| No cloning                         | Apply inner-product preservation to two states before and after copying |                               |                                     |                   |                                     |
 
 ---
 
