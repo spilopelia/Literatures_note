@@ -15,6 +15,15 @@ tags:
 > [!info] Sources and scope
 > Tian Lan, *Advanced Quantum Mechanics*, Chapter 1 (§§1.1–1.7), including every numbered lecture problem and all subparts of Homework 1. The midterm covers **Weeks 1–5**, so this note covers **Chapter 1 only**, not necessarily the entire examination. The updated assumption is that the paper uses **long questions**; the earlier MCQ/terminology breakdown is superseded.
 
+> [!abstract] Navigation
+> - [[#Part I — Reference: concepts, starting equations, and derivation map|Part I — Formula and derivation reference]]
+> - [[#Part II — Worked lecture problems|Part II — Lecture problems]]
+> - [[#Part III — Worked Homework 1|Part III — Homework 1]]
+> - [[#Final closed-book rehearsal|Closed-book rehearsal]]
+>
+> All equations use Obsidian's MathJax-compatible `$...$` (inline) and `$$...$$` (display) delimiters. Switch to Reading view or Live Preview to render them.
+
+
 ## How to use this note for long questions
 
 1. **First pass — derivation map:** Memorize the *starting equation*, mathematical justification, and final result for each topic in Part I. Do not memorize only final matrices.
@@ -27,23 +36,23 @@ tags:
 
 ## Long-question starting-point index
 
-| If the question says…              | Begin with…                                                             |                               |                                     |                   |                                     |
-| ---------------------------------- | ----------------------------------------------------------------------- | ----------------------------- | ----------------------------------- | ----------------- | ----------------------------------- |
-| Determine eigenvalues/eigenvectors | $\det(A-\lambda I)=0$, then $(A-\lambda I)                              | v\rangle=0$ and normalize     |                                     |                   |                                     |
-| Compute outcome and probability    | Spectral projector $P_\lambda$, then $p_\lambda=\langle\psi             | P_\lambda                     | \psi\rangle$                        |                   |                                     |
-| Subsequent measurement             | Replace the initial state by $P_\lambda                                 | \psi\rangle/\sqrt{p_\lambda}$ |                                     |                   |                                     |
-| Act on one subsystem               | Insert $A\otimes I$ or $I\otimes B$ before applying the operator        |                               |                                     |                   |                                     |
-| Compute reduced state              | Expand $\rho$ and use $\operatorname{Tr}_2(                             | i\alpha\rangle\langle j\beta  | )=\delta_{\alpha\beta}              | i\rangle\langle j | $                                   |
-| Prove a commutator identity        | Expand $[A,B]=AB-BA$ and use associativity                              |                               |                                     |                   |                                     |
-| Prove uncertainty inequality       | Set $                                                                   | u\rangle=\delta A             | \psi\rangle$, $                     | v\rangle=\delta B | \psi\rangle$ and use Cauchy–Schwarz |
-| Fourier / momentum                 | Insert $I=\int dp\,                                                     | p\rangle\langle p             | $ and differentiate $e^{ipx/\hbar}$ |                   |                                     |
-| No cloning                         | Apply inner-product preservation to two states before and after copying |                               |                                     |                   |                                     |
+| If the question says… | Begin with… |
+|---|---|
+| Determine eigenvalues/eigenvectors | $\det(A-\lambda I)=0$, then $(A-\lambda I)\vert v\rangle=0$ and normalize |
+| Compute outcome and probability | Spectral projector $P_\lambda$, then $p_\lambda=\langle\psi\vert P_\lambda\vert \psi\rangle$ |
+| Subsequent measurement | Replace the initial state by $P_\lambda\vert \psi\rangle/\sqrt{p_\lambda}$ |
+| Act on one subsystem | Insert $A\otimes I$ or $I\otimes B$ before applying the operator |
+| Compute reduced state | Expand $\rho$ and use $\operatorname{Tr}_2(\vert i\alpha\rangle\langle j\beta\vert )=\delta_{\alpha\beta}\vert i\rangle\langle j\vert $ |
+| Prove a commutator identity | Expand $[A,B]=AB-BA$ and use associativity |
+| Prove uncertainty inequality | Set $\vert u\rangle=\delta A\vert \psi\rangle$, $\vert v\rangle=\delta B\vert \psi\rangle$ and use Cauchy–Schwarz |
+| Fourier / momentum | Insert $I=\int dp\,\vert p\rangle\langle p\vert $ and differentiate $e^{ipx/\hbar}$ |
+| No cloning | Apply inner-product preservation to two states before and after copying |
 
 ---
 
-# Part I — Reference: concepts, starting equations, and derivation map
+## Part I — Reference: concepts, starting equations, and derivation map
 
-### 1. Postulates and quantum states (§§1.1, 1.3)
+#### 1. Postulates and quantum states (§§1.1, 1.3)
 
 - **Hilbert space:** complete complex inner-product space $\mathcal H$; every Cauchy sequence converges in the space.
 - **State:** a nonzero ket $|\psi\rangle\in\mathcal H$. A physical pure state is a *ray*: $|\psi\rangle\sim c|\psi\rangle$ for any $c\ne0$.
@@ -68,9 +77,9 @@ $$
 > [!warning] Common T/F trap
 > An expectation value is an average, **not** necessarily one of the observable's eigenvalues. A projective measurement onto a degenerate eigenspace need not yield one unique eigenvector.
 
-### 2. Linear algebra (§1.2)
+#### 2. Linear algebra (§1.2)
 
-#### Fundamental vocabulary
+##### Fundamental vocabulary
 
 | Term | Definition / test |
 |---|---|
@@ -89,7 +98,7 @@ $$
 | Degenerate eigenvalue | Corresponding eigenspace dimension $>1$ |
 | Trace | $\operatorname{Tr}A=\sum_i\langle i\vert A\vert i\rangle$, independent of orthonormal basis |
 
-#### Recite these identities
+##### Recite these identities
 
 $$
 \begin{gathered}
@@ -110,7 +119,7 @@ $$
 \operatorname{Tr}(A^\dagger A)=\sum_i\|A|i\rangle\|^2\ge0.
 $$
 
-#### Pauli matrices — memorize exactly
+##### Pauli matrices — memorize exactly
 
 $$
 X=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
@@ -158,15 +167,15 @@ $$
 
 If $r=0$, $H=aI$ has a degenerate eigenvalue and no preferred eigenbasis. Eigenvectors are defined up to individual nonzero factors/phases.
 
-### 3. Measurements of a qubit (§1.3)
+#### 3. Measurements of a qubit (§1.3)
 
 For normalized $|\psi\rangle=a|0\rangle+b|1\rangle$:
 
 | Measurement | $P(+1)$ | $P(-1)$ |
 |---|---|---|
-| $Z$ | $\vert a\vert ^2$ | $\vert b\vert ^2$ |
-| $X$ | $\vert a+b\vert ^2/2$ | $\vert a-b\vert ^2/2$ |
-| $Y$ | $\vert a-ib\vert ^2/2$ | $\vert a+ib\vert ^2/2$ |
+| $Z$ | $\vert a\vert^2$ | $\vert b\vert^2$ |
+| $X$ | $\vert a+b\vert^2/2$ | $\vert a-b\vert^2/2$ |
+| $Y$ | $\vert a-ib\vert^2/2$ | $\vert a+ib\vert^2/2$ |
 
 $$
 \langle Z\rangle=|a|^2-|b|^2,\quad
@@ -183,7 +192,7 @@ $$
 
 After obtaining $Z=+1$, an immediate repeat ideal $Z$ measurement yields $+1$ with certainty. After obtaining $Y=-1$, measuring $X$ gives $\pm1$ with probability $1/2$ each.
 
-### 4. Commutators and uncertainty (§1.4)
+#### 4. Commutators and uncertainty (§1.4)
 
 Two Hermitian operators are **compatible** in finite dimensions exactly when they commute (equivalently, they admit a common orthonormal eigenbasis).
 
@@ -211,7 +220,7 @@ $$
 > [!warning] T/F trap
 > $[A,B]\ne0$ does **not** imply that $\langle[A,B]\rangle\ne0$ in every state, nor that the Robertson lower bound is always strictly positive.
 
-### 5. Tensor products and composite systems (§1.5)
+#### 5. Tensor products and composite systems (§1.5)
 
 $$
 \begin{aligned}
@@ -233,7 +242,7 @@ $$
 
 A pure state is **entangled** if it cannot be written as a single tensor product of subsystem state vectors. E.g. $(|00\rangle+|11\rangle)/\sqrt2$.
 
-### 6. Density operators and partial trace (§1.6)
+#### 6. Density operators and partial trace (§1.6)
 
 $$
 \rho=\sum_i p_i|\psi_i\rangle\langle\psi_i|,\qquad
@@ -263,7 +272,7 @@ $$
 > [!example] Bell state partial trace
 > $|\beta_{00}\rangle=(|00\rangle+|11\rangle)/\sqrt2$ is pure, but $\operatorname{Tr}_2(|\beta_{00}\rangle\langle\beta_{00}|)=I/2$ is mixed.
 
-### 7. Continuous position and momentum (§1.7)
+#### 7. Continuous position and momentum (§1.7)
 
 $$
 \begin{gathered}
@@ -302,7 +311,7 @@ $$
 > [!warning] Generalized states
 > $|x\rangle$ and $|p\rangle$ are delta-normalized generalized eigenstates, not normalizable vectors in ordinary $L^2$. Plane-wave and delta identities are distributional.
 
-### 8. Homework-specific must-recites
+#### 8. Homework-specific must-recites
 
 **Bell basis:**
 
@@ -333,7 +342,7 @@ $$
 
 Distinct copied states are orthogonal, so at most $\dim V$ can be copied exactly. CNOT with a blank $|0\rangle$ copies $|0\rangle$ and $|1\rangle$.
 
-### 9. Self-test prompts
+#### 9. Self-test prompts
 
 - [ ] Define Hilbert space, Hermitian, unitary, normal, projector, mixed state, eigenspace, entanglement.
 - [ ] Write $X,Y,Z$ and all six $\pm1$ Pauli eigenstates.
@@ -348,9 +357,9 @@ See  and  for exam-length worked solutions.
 
 ---
 
-# Part II — Worked lecture problems
+## Part II — Worked lecture problems
 
-### Problem 1.2.1 — Vector-space identities
+#### Problem 1.2.1 — Vector-space identities
 
 **Start:** Use the additive identity, additive inverse, and distributive axioms; do not assume the claims being proved.
 
@@ -382,7 +391,7 @@ $$
 
 Also $\alpha+(-1)\alpha=(1-1)\alpha=0\alpha=0$; uniqueness proves the formula.
 
-### Problem 1.2.2 — Operators satisfy vector-space axioms
+#### Problem 1.2.2 — Operators satisfy vector-space axioms
 
 **Start:** Define $(A+B)v=Av+Bv$ and $(cA)v=cAv$. Check equality by applying both operators to arbitrary $v\in V$.
 
@@ -401,7 +410,7 @@ $$
 
 Thus $\operatorname{Hom}(V,W)$ is a vector space. Here $0$ means the zero operator in the relevant lines.
 
-### Problem 1.2.3 — Operator inner product
+#### Problem 1.2.3 — Operator inner product
 
 **Start:** To prove $(A,B)=\operatorname{Tr}(A^\dagger B)$ is an inner product, verify linearity, conjugate symmetry, and positivity.
 
@@ -415,9 +424,9 @@ $$
 
 Equality in the last line means $A|i\rangle=0$ for every basis ket, hence $A=0$. This establishes the inner product in finite dimensions.
 
-### Problem 1.2.4 — Six-part Pauli problem
+#### Problem 1.2.4 — Six-part Pauli problem
 
-#### (1) Determine $Z$
+##### (1) Determine $Z$
 
 **Start:** Work in the eigenbasis, possible because $Z=Z^\dagger$.
 
@@ -431,7 +440,7 @@ $$
 \boxed{Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.}
 $$
 
-#### (2) Determine $X$
+##### (2) Determine $X$
 
 **Start:** Use real entries, Hermiticity and zero trace first:
 
@@ -453,7 +462,7 @@ $$
 
 The sign $-X$ is equally valid before choosing the phase convention.
 
-#### (3) Construct $Y=iXZ$
+##### (3) Construct $Y=iXZ$
 
 $$
 Y=i\begin{pmatrix}0&-1\\1&0\end{pmatrix}=\boxed{\begin{pmatrix}0&-i\\i&0\end{pmatrix}}.
@@ -463,7 +472,7 @@ $$
 Y^\dagger=-iZX=iXZ=Y,\qquad Y^2=-XZXZ=X^2Z^2=I,\qquad\operatorname{Tr}Y=0.
 $$
 
-#### (4) Orthogonal basis of operator space
+##### (4) Orthogonal basis of operator space
 
 Since all are Hermitian and traceless except $I$,
 
@@ -479,7 +488,7 @@ $$
 
 Thus $\operatorname{Tr}(\sigma_\mu^\dagger\sigma_\nu)=2\delta_{\mu\nu}$. Four nonzero orthogonal operators form a basis because $\dim\operatorname{Hom}(V,V)=2^2=4$. With $\frac12\operatorname{Tr}(A^\dagger B)$ they are orthonormal.
 
-#### (5) Pauli commutators
+##### (5) Pauli commutators
 
 $$
 [X,Y]=iZ-(-iZ)=2iZ,\quad [Y,Z]=2iX,\quad[Z,X]=2iY.
@@ -491,7 +500,7 @@ $$
 \boxed{[\sigma_i,\sigma_j]=2i\sum_k\epsilon_{ijk}\sigma_k.}
 $$
 
-#### (6) General $2\times2$ Hermitian eigensystem
+##### (6) General $2\times2$ Hermitian eigensystem
 
 **Start:** Introduce spherical coordinates early, as suggested by the lecturer:
 
@@ -538,9 +547,9 @@ For $r=0$, $H=aI$ and all vectors are eigenvectors. Interpretation: $a$ is the m
 > [!tip] Under exam conditions
 > Do not invoke $M^2=I$ without working if it is not immediately obvious. The characteristic determinant above is direct, standard, and matches the requested eigenvalue method.
 
-### Problem 1.2.5 — Tensor-product bases and matrices
+#### Problem 1.2.5 — Tensor-product bases and matrices
 
-#### (1) Basis independence
+##### (1) Basis independence
 
 Let $|e'_a\rangle=\sum_i S_{ia}|e_i\rangle$ and $|f'_b\rangle=\sum_j T_{jb}|f_j\rangle$ with invertible $S,T$. Bilinearity yields
 
@@ -550,7 +559,7 @@ $$
 
 This is the invertible product basis change $S\otimes T$, with inverse $S^{-1}\otimes T^{-1}$. Thus the construction is basis-independent up to a canonical isomorphism.
 
-#### (2) Tensor product of operator spaces
+##### (2) Tensor product of operator spaces
 
 Using dual basis functionals (or ordinary bras for orthonormal bases), rank-one maps $|e'_a\rangle\langle e_i|$ and $|f'_b\rangle\langle f_j|$ form bases of the local operator spaces. Their product is
 
@@ -564,29 +573,29 @@ $$
 \operatorname{Hom}(V\otimes W,V'\otimes W')\simeq\operatorname{Hom}(V,V')\otimes\operatorname{Hom}(W,W').
 $$
 
-#### (3) Matrix elements
+##### (3) Matrix elements
 
 $$
 \boxed{\langle e_i f_\alpha|A\otimes B|e_j f_\beta\rangle=\langle e_i|A|e_j\rangle\langle f_\alpha|B|f_\beta\rangle=A_{ij}B_{\alpha\beta}.}
 $$
 
-### Problem 1.3.1 — Measurements on $|\psi\rangle=a|0\rangle+b|1\rangle$
+#### Problem 1.3.1 — Measurements on $|\psi\rangle=a|0\rangle+b|1\rangle$
 
 Assume $|a|^2+|b|^2=1$.
 
-#### (1) Outcomes and probabilities
+##### (1) Outcomes and probabilities
 
 Eigenstates: $|x\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ and $|y\pm\rangle=(|0\rangle\pm i|1\rangle)/\sqrt2$. Born's rule gives
 
 | Observable | $P(+1)$ | $P(-1)$ |
 |---|---|---|
-| $Z$ | $\vert a\vert ^2$ | $\vert b\vert ^2$ |
-| $X$ | $\vert a+b\vert ^2/2$ | $\vert a-b\vert ^2/2$ |
-| $Y$ | $\vert a-ib\vert ^2/2$ | $\vert a+ib\vert ^2/2$ |
+| $Z$ | $\vert a\vert^2$ | $\vert b\vert^2$ |
+| $X$ | $\vert a+b\vert^2/2$ | $\vert a-b\vert^2/2$ |
+| $Y$ | $\vert a-ib\vert^2/2$ | $\vert a+ib\vert^2/2$ |
 
 For example $\langle y+|\psi\rangle=(a-ib)/\sqrt2$. Remember to conjugate $i$ when forming $\langle y+|$.
 
-#### (2) Expectations and polar coordinates
+##### (2) Expectations and polar coordinates
 
 $$
 \begin{aligned}
@@ -608,11 +617,11 @@ $$
 \boxed{|\psi\rangle=\cos\frac\theta2|0\rangle+e^{i\phi}\sin\frac\theta2|1\rangle.}
 $$
 
-#### (3) Repeated $Z$ measurement
+##### (3) Repeated $Z$ measurement
 
 After $Z=+1$, the normalized state is $|0\rangle$. A second ideal $Z$ measurement gives $P(+1)=1$ and $P(-1)=0$.
 
-#### (4) $Y=-1$ followed by $X$
+##### (4) $Y=-1$ followed by $X$
 
 Post-first-measurement: $|y-\rangle=(|0\rangle-i|1\rangle)/\sqrt2$.
 
@@ -622,7 +631,7 @@ $$
 
 Thus $\boxed{P(X=\pm1)=1/2}$.
 
-### Problem 1.4.1 — Equality in uncertainty relation
+#### Problem 1.4.1 — Equality in uncertainty relation
 
 Set $|u\rangle=(A-\langle A\rangle)|\psi\rangle$, $|v\rangle=(B-\langle B\rangle)|\psi\rangle$. The proof uses
 
@@ -638,7 +647,7 @@ $$
 
 If either deviation vector is zero, equality also holds. Equivalently, with the sign convention $\eta=-\xi$, $(A+i\eta B)|\psi\rangle=\langle A+i\eta B\rangle|\psi\rangle$.
 
-### Problem 1.4.2 — Commutator identities
+#### Problem 1.4.2 — Commutator identities
 
 Use $[A,B]=AB-BA$:
 
@@ -666,7 +675,7 @@ $$
 
 Every term cancels with its opposite, so the sum is zero.
 
-### Problem 1.6.1 — Density formulas recover pure-state formulas
+#### Problem 1.6.1 — Density formulas recover pure-state formulas
 
 With normalized $\rho=|\psi\rangle\langle\psi|$,
 
@@ -680,7 +689,7 @@ $$
 
 where $|\psi_\lambda\rangle=P_\lambda|\psi\rangle/\sqrt{\langle\psi|P_\lambda|\psi\rangle}$ for nonzero-probability outcomes. Also $\operatorname{Tr}(\rho O)=\langle\psi|O|\psi\rangle$. Thus all three formulas coincide with §1.3.
 
-### Problem 1.6.2 — Pure reduced state iff factorization
+#### Problem 1.6.2 — Pure reduced state iff factorization
 
 **($\Leftarrow$)** If $\rho=|\phi\rangle\langle\phi|\otimes\rho_2$,
 
@@ -696,7 +705,7 @@ $$
 
 Every summand is nonnegative since $\rho\ge0$, so each vanishes. Positive semidefiniteness implies $\rho|e_jb\rangle=0$ (because $\langle v|\rho|v\rangle=\|\sqrt\rho|v\rangle\|^2$). Thus $\rho$ has support only on $\operatorname{span}\{|\phi\rangle\}\otimes\mathcal H_2$ and is $|\phi\rangle\langle\phi|\otimes S$. Taking $\operatorname{Tr}_1$ gives $S=\rho_2$. Therefore $\boxed{\rho=|\phi\rangle\langle\phi|\otimes\rho_2}$.
 
-### Problem 1.7.1 — Step function and delta
+#### Problem 1.7.1 — Step function and delta
 
 For $x\ne0$, $\theta(x)=\int_{-\infty}^x\delta(y)\,dy$; hence $d\theta/dx=\delta(x)$ in the distributional sense. Integrate by parts:
 
@@ -708,7 +717,7 @@ $$
 - $a<0<b$: result $f(b)-\int_0^bf'(x)\,dx=f(0)$.
 - $0<a<b$: result $f(b)-f(a)-\int_a^bf'(x)\,dx=0$.
 
-### Problem 1.7.2 — Equivalent definitions of $f(A)$
+#### Problem 1.7.2 — Equivalent definitions of $f(A)$
 
 If $A|\alpha_i\rangle=\lambda_i|\alpha_i\rangle$, then $A^n|\alpha_i\rangle=\lambda_i^n|\alpha_i\rangle$. Thus
 
@@ -723,7 +732,7 @@ $$
 
 As eigenvectors span the space, $\boxed{f(A)=\sum_i f(\lambda_i)|\alpha_i\rangle\langle\alpha_i|}$ whenever both definitions apply.
 
-### Problem 1.7.3 — Fourier relation implies canonical momentum properties
+#### Problem 1.7.3 — Fourier relation implies canonical momentum properties
 
 Given $\langle x|p\rangle=(2\pi\hbar)^{-1/2}e^{ipx/\hbar}$,
 
@@ -758,11 +767,11 @@ $$
 
 ---
 
-# Part III — Worked Homework 1
+## Part III — Worked Homework 1
 
-### Question 1 — Quantum teleportation (60 marks)
+#### Question 1 — Quantum teleportation (60 marks)
 
-#### Setup: Bell basis and operator actions
+##### Setup: Bell basis and operator actions
 
 $X|0\rangle=|1\rangle$, $X|1\rangle=|0\rangle$, $Z|0\rangle=|0\rangle$, $Z|1\rangle=-|1\rangle$. With first/second qubit ordering:
 
@@ -777,7 +786,7 @@ $$
 
 These form an orthonormal basis. For $i,j\in\{0,1\}$, $X^2=Z^2=I$ and $XZ=-ZX$.
 
-#### 1(a) — Verify Bell-state transformations
+##### 1(a) — Verify Bell-state transformations
 
 **First, apply $Z$ to either side of $|\beta_{00}\rangle$.**
 
@@ -831,7 +840,7 @@ $$
 
 Exponents can be taken modulo 2, including negative exponents because $X^{-1}=X$ and $Z^{-1}=Z$.
 
-#### 1(b) — Bell measurement of the first two qubits
+##### 1(b) — Bell measurement of the first two qubits
 
 **Given:** $|\alpha\rangle=a|0\rangle+b|1\rangle$, $|a|^2+|b|^2=1$, and
 
@@ -917,7 +926,7 @@ $$
 > [!warning] Common grading mistakes
 > The projector $P_{ij}$ contains an identity on qubit 3. The projected state has coefficient $1/2$; the normalized conditional state does not. The probability is $1/4$, not $1/2$.
 
-#### 1(c) — Bell contraction, transpose, and initial $|\beta_{kl}\rangle$
+##### 1(c) — Bell contraction, transpose, and initial $|\beta_{kl}\rangle$
 
 **Part 1 — Prove the matrix-element identity.** We are asked to show
 
@@ -981,7 +990,7 @@ $$
 
 Here the indices on Pauli powers are modulo 2. The minus sign is an overall phase, physically irrelevant but important for an *exact algebraic* equality.
 
-#### 1(d) — Reversed and successive Bell measurements
+##### 1(d) — Reversed and successive Bell measurements
 
 **First task:** Measure $I\otimes O$ on $|\beta_{ij}\rangle_{12}\otimes|\alpha\rangle_3$, i.e. perform Bell measurement on qubits $2,3$. For outcome $\lambda=2m+n$,
 
@@ -1021,9 +1030,9 @@ Each stage has conditional outcome probability $1/4$; each ordered pair of outco
 
 ---
 
-### Question 2 — No-clone theorem and quantum Darwinism (40 marks)
+#### Question 2 — No-clone theorem and quantum Darwinism (40 marks)
 
-#### 2(a) — Show the clone map is not linear
+##### 2(a) — Show the clone map is not linear
 
 Given $\operatorname{Clone}|\phi\rangle=|\phi\rangle\otimes|\phi\rangle$ for every ket, compare scaling by $c$:
 
@@ -1051,7 +1060,7 @@ $$
 
 which are generally different. (The problem defines the clone map on all vectors, so the scaling counterexample is legitimate.)
 
-#### 2(b) — At most $\dim V$ perfectly cloned states
+##### 2(b) — At most $\dim V$ perfectly cloned states
 
 Given an isometry $A:V\to V\otimes V$ with $\langle A\alpha|A\beta\rangle=\langle\alpha|\beta\rangle$ and
 
@@ -1089,7 +1098,7 @@ $$
 \boxed{|K|\le\dim V.}
 $$
 
-#### 2(c) — A qubit unitary copying the maximum number
+##### 2(c) — A qubit unitary copying the maximum number
 
 For $\dim V=2$, part (b) gives $|K|\le2$. Choose the blank state $|\eta\rangle=|0\rangle$ and controlled-NOT
 
@@ -1117,7 +1126,7 @@ $$
 
 for generic $a,b$. Therefore the maximum $|K|=2$ is attained.
 
-#### 2(d) — Explain the connection between measurement and copyable classical information
+##### 2(d) — Explain the connection between measurement and copyable classical information
 
 **Short-answer model response:**
 
@@ -1127,7 +1136,7 @@ Be careful: a degenerate measurement outcome need not identify a unique pure eig
 
 ---
 
-### Exam rehearsal: one-line starting points
+#### Exam rehearsal: one-line starting points
 
 | Part | Immediate starting point |
 |---|---|
@@ -1140,11 +1149,10 @@ Be careful: a degenerate measurement outcome need not identify a unique pure eig
 | 2(c) | Use CNOT with blank $\vert 0\rangle$ |
 | 2(d) | Differentiate copying a measurement's classical outcome from cloning the unknown ket |
 
-See  for the memorization sheet and  for all chapter exercises.
 
 ---
 
-# Final closed-book rehearsal
+## Final closed-book rehearsal
 
 > [!todo] A full answer is not just a boxed result
 > Each time you attempt a question, explicitly identify the relevant basis and operator, write the first equation, show the two or three transformations that do the actual work, and verify normalization or physical consistency.
