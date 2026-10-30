@@ -24,6 +24,9 @@ tags:
 > All equations use Obsidian's MathJax-compatible `$...$` (inline) and `$$...$$` (display) delimiters. Switch to Reading view or Live Preview to render them.
 
 
+> [!important] Equation-first standard used throughout
+> Do not replace an algebraic step with words such as “the sign comes from the bra” or “the state collapses.” Where a result depends on a conjugate, projection, operator order, or normalization, write the relevant equation and simplify it. A short explanation should follow the calculation, not replace it.
+
 ## How to use this note for long questions
 
 1. **First pass — derivation map:** Learn the *starting equation* and reconstruct the key steps in Part I. Do not try to recite the entire formula catalogue.
@@ -132,7 +135,53 @@ P(\lambda)=\langle\psi|P_\lambda|\psi\rangle,\qquad
 |\psi_\lambda\rangle=\frac{P_\lambda|\psi\rangle}{\sqrt{P(\lambda)}}.
 $$
 
-For $|\psi\rangle=a|0\rangle+b|1\rangle$, $P(Y=+1)=|\langle y+|\psi\rangle|^2=|a-ib|^2/2$. The *minus sign* comes from conjugating the eigenbra. For two successive measurements, **update the state after the first outcome before evaluating the second**.
+**Derive the measurement amplitude; do not just quote the sign.** For $|\psi\rangle=a|0\rangle+b|1\rangle$, first take the adjoint of the $Y=+1$ eigenket:
+
+$$
+\begin{aligned}
+|y+\rangle&=\frac{|0\rangle+i|1\rangle}{\sqrt2},\\
+\langle y+|&=\frac{\langle0|-i\langle1|}{\sqrt2}.
+\end{aligned}
+$$
+
+Then, using $\langle i|j\rangle=\delta_{ij}$,
+
+$$
+\begin{aligned}
+\langle y+|\psi\rangle
+&=\frac{(\langle0|-i\langle1|)(a|0\rangle+b|1\rangle)}{\sqrt2}\\
+&=\frac{a\langle0|0\rangle+b\langle0|1\rangle-ia\langle1|0\rangle-ib\langle1|1\rangle}{\sqrt2}\\
+&=\frac{a\langle0|0\rangle+b\langle0|1\rangle-ia\langle1|0\rangle-ib\langle1|1\rangle}{\sqrt2}\\
+&=\frac{a-ib}{\sqrt2},\\
+P(Y=+1)&=|\langle y+|\psi\rangle|^2=\frac{|a-ib|^2}{2}.
+\end{aligned}
+$$
+
+**For successive measurements, calculate the state update rather than just state the rule.** Suppose the first result is $Y=-1$ (of nonzero probability). With $P_{y-}=|y-\rangle\langle y-|$,
+
+$$
+\begin{aligned}
+|\psi_1\rangle
+&=\frac{P_{y-}|\psi\rangle}{\sqrt{\langle\psi|P_{y-}|\psi\rangle}}\\
+&=\frac{|y-\rangle\langle y-|\psi\rangle}{|\langle y-|\psi\rangle|}\\
+&=\frac{a+ib}{|a+ib|}|y-\rangle
+\sim|y-\rangle=\frac{|0\rangle-i|1\rangle}{\sqrt2}.
+\end{aligned}
+$$
+
+Here $\sim$ denotes equality up to global phase. For the second measurement, use the **new state** $|\psi_1\rangle$, not $|\psi\rangle$:
+
+$$
+\begin{aligned}
+P(X=+1\mid Y=-1)
+&=|\langle x+|y-\rangle|^2\\
+&=\left|\frac{(\langle0|+\langle1|)(|0\rangle-i|1\rangle)}2\right|^2\\
+&=\left|\frac{1-i}{2}\right|^2=\frac12,\\
+P(X=-1\mid Y=-1)
+&=\left|\frac{(\langle0|-\langle1|)(|0\rangle-i|1\rangle)}2\right|^2\\
+&=\left|\frac{1+i}{2}\right|^2=\frac12.
+\end{aligned}
+$$
 
 ### 3. Commutator and uncertainty: reconstruct from one inequality
 
@@ -235,9 +284,37 @@ For a matrix with entries $\rho_{ab,cd}$, the quick rule is $(\rho_1)_{ac}=\sum_
 > [!important] What to learn
 > **Do not try to memorize three isolated equations.** Learn two directions: (i) commutator + zero-momentum reference $\Rightarrow$ differential operator $\Rightarrow$ plane wave; (ii) given Fourier overlap $\Rightarrow$ differential operator $\Rightarrow$ commutator. The problem statement may supply a starting relation; identify *which direction* is being requested.
 
-**Foundation:** the position basis satisfies $\hat x|x\rangle=x|x\rangle$, $\langle x|y\rangle=\delta(x-y)$ and $I=\int dx\,|x\rangle\langle x|$. Thus $\psi(x)=\langle x|\psi\rangle$ and $\langle x|f(\hat x)|\psi\rangle=f(x)\psi(x)$. The last statement follows from $f(\hat x)|x\rangle=f(x)|x\rangle$ and Hermiticity of $\hat x$.
+**Foundation:** begin with the continuous eigenbasis and completeness:
 
-**Direction A — From $[\hat x,\hat p]=i\hbar I$ to a derivative.** The product commutator rule gives $[\hat p,\hat x^n]=-i\hbar n\hat x^{n-1}$ and consequently, for suitable differentiable $f$,
+$$
+\hat x|x\rangle=x|x\rangle,\qquad
+\langle x|y\rangle=\delta(x-y),\qquad
+I=\int dy\,|y\rangle\langle y|.
+$$
+
+For a function of the position operator, $f(\hat x)|y\rangle=f(y)|y\rangle$. Insert completeness instead of assuming its action on a wavefunction:
+
+$$
+\begin{aligned}
+\langle x|f(\hat x)|\psi\rangle
+&=\int dy\,\langle x|f(\hat x)|y\rangle\langle y|\psi\rangle\\
+&=\int dy\,f(y)\delta(x-y)\psi(y)\\
+&=f(x)\psi(x).
+\end{aligned}
+$$
+
+This is why $f(\hat x)$ becomes multiplication by $f(x)$ **in the position representation**; it is not an identity between an operator and a number.
+
+**Direction A — From $[\hat x,\hat p]=i\hbar I$ to a derivative.** First recall the commutator product rule $[A,BC]=[A,B]C+B[A,C]$. For example,
+
+$$
+\begin{aligned}
+[\hat p,\hat x^2]&=[\hat p,\hat x]\hat x+\hat x[\hat p,\hat x]=-2i\hbar\hat x,\\
+[\hat p,\hat x^3]&=[\hat p,\hat x^2]\hat x+\hat x^2[\hat p,\hat x]=-3i\hbar\hat x^2.
+\end{aligned}
+$$
+
+Thus $[\hat p,\hat x^n]=-i\hbar n\hat x^{n-1}$. Applying this term by term to a suitable operator function $f(\hat x)=\sum_n c_n\hat x^n$ yields
 
 $$
 [\hat p,f(\hat x)]=-i\hbar f'(\hat x).
@@ -255,7 +332,27 @@ $$
 \end{aligned}
 $$
 
-**Direction A continued — Momentum eigenfunctions.** In position space, $\hat p|p\rangle=p|p\rangle$ becomes $-i\hbar\,\partial_x\langle x|p\rangle=p\langle x|p\rangle$. Its solution is $\langle x|p\rangle=C e^{ipx/\hbar}$. Normalizing with $\langle x|y\rangle=\int dp\,\langle x|p\rangle\langle p|y\rangle$ and the distributional identity $\int dp\,e^{ip(x-y)/\hbar}=2\pi\hbar\delta(x-y)$ gives $|C|^2=(2\pi\hbar)^{-1}$. Choose $C>0$:
+**Direction A continued — Momentum eigenfunctions.** Take the momentum eigenvalue equation $\hat p|p\rangle=p|p\rangle$ and project onto $\langle x|$:
+
+$$
+-i\hbar\frac{d}{dx}\langle x|p\rangle=p\langle x|p\rangle
+\quad\Rightarrow\quad
+\frac{d\phi_p}{dx}=\frac{ip}{\hbar}\phi_p
+\quad\Rightarrow\quad
+\phi_p(x)=Ce^{ipx/\hbar}.
+$$
+
+The generalized normalization comes from inserting momentum completeness between two position states:
+
+$$
+\begin{aligned}
+\delta(x-y)&=\langle x|y\rangle=\int dp\,\langle x|p\rangle\langle p|y\rangle\\
+&=|C|^2\int dp\,e^{ip(x-y)/\hbar}\\
+&=|C|^2(2\pi\hbar)\delta(x-y).
+\end{aligned}
+$$
+
+Hence $|C|^2=(2\pi\hbar)^{-1}$. Choose $C>0$ as the phase convention:
 
 $$
 \langle x|p\rangle=\frac{e^{ipx/\hbar}}{\sqrt{2\pi\hbar}}.
@@ -569,7 +666,20 @@ Eigenstates: $|x\pm\rangle=(|0\rangle\pm|1\rangle)/\sqrt2$ and $|y\pm\rangle=(|0
 | $X$ | $\vert a+b\vert^2/2$ | $\vert a-b\vert^2/2$ |
 | $Y$ | $\vert a-ib\vert^2/2$ | $\vert a+ib\vert^2/2$ |
 
-For example $\langle y+|\psi\rangle=(a-ib)/\sqrt2$. Remember to conjugate $i$ when forming $\langle y+|$.
+For the $Y=+1$ entry, **take the adjoint and expand the inner product**, rather than memorizing the sign:
+
+$$
+\begin{aligned}
+\langle y+|&=\frac{\langle0|-i\langle1|}{\sqrt2},\\
+\langle y+|\psi\rangle
+&=\frac{(\langle0|-i\langle1|)(a|0\rangle+b|1\rangle)}{\sqrt2}\\
+&=\frac{a\langle0|0\rangle+b\langle0|1\rangle-ia\langle1|0\rangle-ib\langle1|1\rangle}{\sqrt2}\\
+&=\frac{a-ib}{\sqrt2},\\
+P(Y=+1)&=\frac{|a-ib|^2}{2}.
+\end{aligned}
+$$
+
+Likewise $\langle y-|=(\langle0|+i\langle1|)/\sqrt2$, so $P(Y=-1)=|a+ib|^2/2$.
 
 #### (2) Expectations and polar coordinates
 
@@ -581,10 +691,24 @@ $$
 \end{aligned}
 $$
 
-Then
+These expectations follow from multiplying the Pauli matrices into the column $(a,b)^T$; explicitly, for $Y$,
 
 $$
-r^2=(|a|^2-|b|^2)^2+4|a^*b|^2=(|a|^2+|b|^2)^2=1.
+\begin{aligned}
+\langle Y\rangle
+&=(a^*,b^*)\begin{pmatrix}0&-i\\i&0\end{pmatrix}\begin{pmatrix}a\\b\end{pmatrix}\\
+&=(a^*,b^*)\begin{pmatrix}-ib\\ia\end{pmatrix}=-ia^*b+ib^*a.
+\end{aligned}
+$$
+
+The Bloch-vector length is
+
+$$
+\begin{aligned}
+r^2&=(|a|^2-|b|^2)^2+(a^*b+b^*a)^2+[-i(a^*b-b^*a)]^2\\
+&=(|a|^2-|b|^2)^2+4|a^*b|^2\\
+&=(|a|^2+|b|^2)^2=1.
+\end{aligned}
 $$
 
 From $\langle Z\rangle=\cos\theta$ and $\langle X\rangle+i\langle Y\rangle=\sin\theta e^{i\phi}$, choose global phase so $a\ge0$:
@@ -595,17 +719,50 @@ $$
 
 #### (3) Repeated $Z$ measurement
 
-After $Z=+1$, the normalized state is $|0\rangle$. A second ideal $Z$ measurement gives $P(+1)=1$ and $P(-1)=0$.
+Recall that the post-measurement state is $P_+|\psi\rangle/\sqrt{\langle\psi|P_+|\psi\rangle}$, not the original ket. The first outcome $Z=+1$ has projector $P_+=|0\rangle\langle0|$. The normalized conditional state is
+
+$$
+\begin{aligned}
+|\psi_1\rangle
+&=\frac{P_+|\psi\rangle}{\sqrt{\langle\psi|P_+|\psi\rangle}}
+=\frac{|0\rangle\langle0|(a|0\rangle+b|1\rangle)}{|a|}\\
+&=\frac{a}{|a|}|0\rangle\sim|0\rangle.
+\end{aligned}
+$$
+
+The next $Z$ measurement therefore yields
+
+$$
+P(Z=+1\mid Z=+1)=|\langle0|0\rangle|^2=1,\qquad
+P(Z=-1\mid Z=+1)=|\langle1|0\rangle|^2=0.
+$$
 
 #### (4) $Y=-1$ followed by $X$
 
-Post-first-measurement: $|y-\rangle=(|0\rangle-i|1\rangle)/\sqrt2$.
+For the first result, $P_{y-}=|y-\rangle\langle y-|$, where $|y-\rangle=(|0\rangle-i|1\rangle)/\sqrt2$. Using $\langle y-|=(\langle0|+i\langle1|)/\sqrt2$,
 
 $$
-\langle x+|y-\rangle=\frac{1-i}{2},\qquad\langle x-|y-\rangle=\frac{1+i}{2}.
+\begin{aligned}
+|\psi_1\rangle
+&=\frac{|y-\rangle\langle y-|\psi\rangle}{|\langle y-|\psi\rangle|}\\
+&=\frac{a+ib}{|a+ib|}|y-\rangle\sim |y-\rangle.
+\end{aligned}
 $$
 
-Thus $\boxed{P(X=\pm1)=1/2}$.
+The first outcome is possible only when $a+ib\ne0$. Its phase cancels from every probability. For the subsequent $X$ measurement, the normalized eigenbras are $\langle x\pm|=(\langle0|\pm\langle1|)/\sqrt2$. Therefore,
+
+$$
+\begin{aligned}
+P(X=+1\mid Y=-1)
+&=\left|\frac{(\langle0|+\langle1|)(|0\rangle-i|1\rangle)}2\right|^2
+=\left|\frac{1-i}2\right|^2=\frac12,\\
+P(X=-1\mid Y=-1)
+&=\left|\frac{(\langle0|-\langle1|)(|0\rangle-i|1\rangle)}2\right|^2
+=\left|\frac{1+i}2\right|^2=\frac12.
+\end{aligned}
+$$
+
+Both statements are conditional on the first outcome having nonzero probability.
 
 ### Problem 1.4.1 — Equality in uncertainty relation
 
@@ -722,9 +879,31 @@ $$
 \int_a^bf(x)\delta(x)\,dx=[f(x)\theta(x)]_a^b-\int_a^b\theta(x)f'(x)\,dx.
 $$
 
-- $a<b<0$: both terms zero, result $0$.
-- $a<0<b$: result $f(b)-\int_0^bf'(x)\,dx=f(0)$.
-- $0<a<b$: result $f(b)-f(a)-\int_a^bf'(x)\,dx=0$.
+For $a<b<0$, $\theta(x)=0$ throughout the interval, so
+
+$$
+\int_a^bf(x)\delta(x)\,dx=0-0=0.
+$$
+
+For $a<0<b$, $\theta(a)=0$ and $\theta(b)=1$, hence
+
+$$
+\begin{aligned}
+\int_a^bf(x)\delta(x)\,dx
+&=f(b)-\int_0^bf'(x)\,dx\\
+&=f(b)-[f(b)-f(0)]=f(0).
+\end{aligned}
+$$
+
+For $0<a<b$, $\theta(x)=1$ throughout, and
+
+$$
+\begin{aligned}
+\int_a^bf(x)\delta(x)\,dx
+&=f(b)-f(a)-\int_a^bf'(x)\,dx\\
+&=f(b)-f(a)-[f(b)-f(a)]=0.
+\end{aligned}
+$$
 
 ### Problem 1.7.2 — Equivalent definitions of $f(A)$
 
@@ -1008,7 +1187,7 @@ $$
 =\frac12 X^iZ^jX^mZ^n|\alpha\rangle,
 $$
 
-with the selected normalization/phase convention (global phases may be absorbed). Therefore each outcome has probability $1/4$ and the normalized state is
+up to an outcome-dependent global phase; the physical conditional state is unaffected. Its norm is $1/2$ since the Pauli factors are unitary. Therefore each outcome has probability $1/4$ and the normalized state is
 
 $$
 \boxed{X^iZ^jX^mZ^n|\alpha\rangle_1\otimes|\beta_{mn}\rangle_{23}.}
