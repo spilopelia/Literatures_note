@@ -552,23 +552,25 @@ $$
 =-\frac{T}{2m}\left(p-\frac{m\Delta x}{T}\right)^2+\frac{m(\Delta x)^2}{2T}.
 $$
 
-To evaluate the remaining Gaussian, introduce $q=p-m\Delta x/T$ and a small convergence factor $\varepsilon>0$:
+Now substitute $q=p-m\Delta x/T$. The remaining integral is an oscillatory Gaussian. Using the Gaussian integral
+
+$$
+\int_{-\infty}^{\infty}e^{-aq^2}\,dq=\sqrt{\frac{\pi}{a}},
+$$
+
+with $a=iT/(2m\hbar)$ (understood with the usual convergence prescription), we obtain
 
 $$
 \begin{aligned}
-I_\varepsilon
-&=\int_{-\infty}^{\infty}dq\,
-\exp\left[-\left(\varepsilon+\frac{iT}{2m\hbar}\right)q^2\right]\\
-&=\sqrt{\frac{\pi}{\varepsilon+iT/(2m\hbar)}}.
+\int_{-\infty}^{\infty}dq\,e^{-iTq^2/(2m\hbar)}
+&=\sqrt{\frac{\pi}{iT/(2m\hbar)}}
+=\sqrt{\frac{2\pi m\hbar}{iT}},\\
+\frac{1}{2\pi\hbar}\sqrt{\frac{2\pi m\hbar}{iT}}
+&=\sqrt{\frac{m}{2\pi i\hbar T}}.
 \end{aligned}
 $$
 
-The second line uses the standard Gaussian integral $\int e^{-a q^2}dq=\sqrt{\pi/a}$ for $\operatorname{Re}a>0$, extended by taking the limit $\varepsilon\to0^+$:
-
-$$
-I=\sqrt{\frac{2\pi m\hbar}{iT}},\qquad
-\frac{I}{2\pi\hbar}=\sqrt{\frac{m}{2\pi i\hbar T}}.
-$$
+The Gaussian with complex $a$ is defined by adding an arbitrarily small positive damping term and taking its limit; this technical justification need not be repeated in each exam calculation.
 
 Hence the full kernel is
 
@@ -780,7 +782,7 @@ $$
 $$
 
 The $xp^3$ calculation is analogous. Thus the degree-four ambiguity is at most a multiple of $I$: it shifts all energies equally and does not change measurement probabilities.
-	
+
 **(c) Degree greater than four — counterexample.** Use the classical monomial $x^3p^2$ of degree five. Two Hermitian orderings are
 
 $$
@@ -1012,17 +1014,22 @@ p\Delta x-\frac{p^2\delta t}{2m}
 \end{aligned}
 $$
 
-Shift $q=p-m\Delta x/\delta t$ and use the same convergent-Gaussian limiting procedure as Mock 4:
+Shift $q=p-m\Delta x/\delta t$. Directly apply the Gaussian integral $\int_{-\infty}^{\infty}e^{-aq^2}dq=\sqrt{\pi/a}$ with $a=i\delta t/(2m\hbar)$, understood with the convergence prescription already noted in Mock 4:
 
 $$
 \begin{aligned}
-\int dq\,e^{-i\delta t q^2/(2m\hbar)}
-&=\lim_{\varepsilon\to0^+}
-\int dq\,e^{-(\varepsilon+i\delta t/(2m\hbar))q^2}\\
-&=\lim_{\varepsilon\to0^+}
-\sqrt{\frac{\pi}{\varepsilon+i\delta t/(2m\hbar)}}
-=\sqrt{\frac{2\pi m\hbar}{i\delta t}}.
+\int_{-\infty}^{\infty}dq\,e^{-i\delta t q^2/(2m\hbar)}
+&=\sqrt{\frac{\pi}{i\delta t/(2m\hbar)}}\\
+&=\sqrt{\frac{2\pi m\hbar}{i\delta t}}.
 \end{aligned}
+$$
+
+The prefactor from momentum completeness is $1/(2\pi\hbar)$, hence
+
+$$
+\frac{1}{2\pi\hbar}
+\sqrt{\frac{2\pi m\hbar}{i\delta t}}
+=\sqrt{\frac{m}{2\pi i\hbar\delta t}}.
 $$
 
 Collecting prefactors and phases,
