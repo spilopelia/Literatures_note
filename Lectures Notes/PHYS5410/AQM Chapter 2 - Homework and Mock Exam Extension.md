@@ -529,15 +529,15 @@ The extra factor is a global phase. It cancels from $\langle\psi(T)|M|\psi(T)\ra
 
 ## Exam recognition map
 
-| Question wording | First line you should write |
-|---|---|
-| “Find time-dependent measurement probability” | $|\psi(t)\rangle=U(t)|\psi_0\rangle$, then $P=|\langle m|\psi(t)\rangle|^2$ |
-| “Change to a moving picture/frame” | $U'=WU$, then $i\hbar\dot U'=(i\hbar\dot WW^\dagger+WHW^\dagger)U'$ |
-| “Transform position by translation” | $T(a)=e^{-ia\hat p/\hbar}$, then the first Hadamard commutator |
-| “Find how an observable changes with time” | $\dot O_H=(i/\hbar)[H_H,O_H]$ (plus an explicit derivative if present) |
-| “Is momentum conserved?” | Calculate $[H,\hat p]$ and connect with translation invariance |
-| “Find a propagator” | $K=\langle x_f|U|x_i\rangle$; insert $I=\int dp|p\rangle\langle p|$ |
-| “Split the propagator at intermediate time” | $U(T,0)=U(T,t)U(t,0)$ and insert $I=\int dx|x\rangle\langle x|$ |
+| Question wording                              | First line you should write                                            |                     |                                |                   |                |     |
+| --------------------------------------------- | ---------------------------------------------------------------------- | ------------------- | ------------------------------ | ----------------- | -------------- | --- |
+| “Find time-dependent measurement probability” | $                                                                      | \psi(t)\rangle=U(t) | \psi_0\rangle$, then $P=       | \langle m         | \psi(t)\rangle | ^2$ |
+| “Change to a moving picture/frame”            | $U'=WU$, then $i\hbar\dot U'=(i\hbar\dot WW^\dagger+WHW^\dagger)U'$    |                     |                                |                   |                |     |
+| “Transform position by translation”           | $T(a)=e^{-ia\hat p/\hbar}$, then the first Hadamard commutator         |                     |                                |                   |                |     |
+| “Find how an observable changes with time”    | $\dot O_H=(i/\hbar)[H_H,O_H]$ (plus an explicit derivative if present) |                     |                                |                   |                |     |
+| “Is momentum conserved?”                      | Calculate $[H,\hat p]$ and connect with translation invariance         |                     |                                |                   |                |     |
+| “Find a propagator”                           | $K=\langle x_f                                                         | U                   | x_i\rangle$; insert $I=\int dp | p\rangle\langle p | $              |     |
+| “Split the propagator at intermediate time”   | $U(T,0)=U(T,t)U(t,0)$ and insert $I=\int dx                            | x\rangle\langle x   | $                              |                   |                |     |
 
 ## High-value checks
 
