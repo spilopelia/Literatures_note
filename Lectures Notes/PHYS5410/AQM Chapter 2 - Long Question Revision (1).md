@@ -101,6 +101,10 @@ $$
 
 **Operator-exponential toolkit:** $[A,B]=AB-BA$; $\operatorname{ad}_A(B)=[A,B]$; commuting-exponential rule; Hadamard conjugation and special BCH formula. Their proofs are in Problem 2.2.1. HW2 Q1 supplies a useful prerequisite on $\operatorname{ad}$.
 
+### Worked three-picture example (separate exam-style exercise)
+
+The fully worked two-level example is in [[AQM Chapter 2 - Homework and Mock Exam Extension#Fully worked §2.2 example — three pictures, one two-level system]]. It develops the same probability in all pictures using explicit matrices, derivative steps and normalization.
+
 ### 3. From short-time propagators to the path integral (§2.3)
 
 Insert position completeness $I=\int dx\,|x\rangle\langle x|$ between consecutive short-time propagators:
