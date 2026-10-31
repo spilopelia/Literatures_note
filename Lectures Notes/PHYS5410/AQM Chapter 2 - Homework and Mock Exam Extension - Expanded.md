@@ -780,7 +780,7 @@ $$
 $$
 
 The $xp^3$ calculation is analogous. Thus the degree-four ambiguity is at most a multiple of $I$: it shifts all energies equally and does not change measurement probabilities.
-
+	
 **(c) Degree greater than four — counterexample.** Use the classical monomial $x^3p^2$ of degree five. Two Hermitian orderings are
 
 $$
