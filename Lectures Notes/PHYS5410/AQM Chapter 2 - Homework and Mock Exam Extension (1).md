@@ -2,7 +2,7 @@
 title: "AQM Chapter 2 — Homework and Mock Exam Extension"
 tags: [AQM, chapter-2, chapter-4-1, midterm, long-questions]
 ---
-
+	
 # AQM Chapter 2 — Homework and Mock Exam Extension
 
 > [!important] Exam boundary
